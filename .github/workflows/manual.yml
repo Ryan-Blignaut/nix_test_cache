@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-arm
     steps:
       - uses: actions/checkout@v4
 
@@ -25,4 +25,4 @@ jobs:
 
       # Build your flake target
       - name: Build flake output
-        run: nix build .#myPackage
+        run: nix build .#rpi-5
