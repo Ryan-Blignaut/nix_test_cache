@@ -25,4 +25,4 @@ jobs:
 
       # Build your flake target
       - name: Build flake output
-        run: nix build .#rpi-5
+        run: nix build .#nixosConfigurations.rpi5.config.system.build.toplevel
