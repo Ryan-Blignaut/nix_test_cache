@@ -27,6 +27,15 @@
     allSystems = nixpkgs.lib.systems.flakeExposed;
     forSystems = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
   in {
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        xdg-desktop-portal = prev.xdg-desktop-portal.overrideAttrs (old: {
+          doCheck = false;
+        });
+      })
+    ];
+
     devShells = forSystems allSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
@@ -250,6 +259,9 @@
             };
           };
         };
+
+
+
 
         programs.hyprland = {
           enable = true;
