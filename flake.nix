@@ -18,7 +18,7 @@
         text = ''
           #include <stdio.h>
           int main() {
-            printf("Hello from Nix Flake!\\n");
+            printf("Hello from Nix Flake! cool things 12345678901928373645\\n");
             return 0;
           }
         '';
