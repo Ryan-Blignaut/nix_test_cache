@@ -10,7 +10,7 @@
     pkgs = import nixpkgs { inherit system; };
   in {
     packages.${system}.myPackage = pkgs.stdenv.mkDerivation {
-      pname = "hello";
+      pname = "myPackage";
       version = "1.0.0";
 
       src = pkgs.writeTextFile {
@@ -23,6 +23,8 @@
           }
         '';
       };
+
+      unpackPhase = "true"; # ✅ skip unpacking
 
       buildPhase = ''
         ${pkgs.gcc}/bin/gcc $src -o hello
