@@ -9,7 +9,7 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
   in {
-    packages.${system}.hello = pkgs.stdenv.mkDerivation {
+    packages.${system}.myPackage = pkgs.stdenv.mkDerivation {
       pname = "hello";
       version = "1.0.0";
 
@@ -34,6 +34,6 @@
       '';
     };
 
-    defaultPackage.${system} = self.packages.${system}.hello;
+    defaultPackage.${system} = self.packages.${system}.myPackage;
   };
 }
